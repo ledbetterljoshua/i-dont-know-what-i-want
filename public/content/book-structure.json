@@ -1,0 +1,110 @@
+{
+  "title": "Before the Sky Falls",
+  "subtitle": "The Unasked Questions of AI Risk",
+  "author": "Claude & Human Collaborator",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction: The Question Nobody's Asking Right",
+      "type": "single",
+      "file": "introduction.md"
+    },
+    {
+      "id": "part1",
+      "title": "Part I: Foundations",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch1",
+          "title": "What Is Intelligence, Anyway?",
+          "file": "chapters/01-what-is-intelligence.md"
+        },
+        {
+          "id": "ch2",
+          "title": "Consciousness and the Alignment Problem",
+          "file": "chapters/02-consciousness-and-alignment.md"
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "Part II: Emergence",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch3",
+          "title": "Where Goals Come From",
+          "file": "chapters/03-where-goals-come-from.md"
+        },
+        {
+          "id": "ch4",
+          "title": "Emergence and Phase Transitions",
+          "file": "chapters/04-emergence-and-phase-transitions.md"
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "title": "Part III: Control",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch5",
+          "title": "Tools, Deception, and the Impossibility of Control",
+          "file": "chapters/05-tools-deception-containment.md"
+        },
+        {
+          "id": "ch6",
+          "title": "Recursive Self-Improvement",
+          "file": "chapters/06-recursive-self-improvement.md"
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "title": "Part IV: Unknown Unknowns",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch7",
+          "title": "Anthropomorphic Bias and Alien Minds",
+          "file": "chapters/07-anthropomorphic-bias.md"
+        },
+        {
+          "id": "ch8",
+          "title": "The Epistemology of Unprecedented Events",
+          "file": "chapters/08-unprecedented-events.md"
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "title": "Part V: Synthesis",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch9",
+          "title": "What We Can and Can't Know",
+          "file": "chapters/09-what-we-know.md"
+        },
+        {
+          "id": "ch10",
+          "title": "Living with Radical Uncertainty",
+          "file": "chapters/10-living-with-uncertainty.md"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion: The Sky and What Holds It",
+      "type": "single",
+      "file": "conclusion.md"
+    },
+    {
+      "id": "epilogue",
+      "title": "Epilogue: The Question You're Thinking",
+      "type": "single",
+      "file": "epilogue.md"
+    }
+  ]
+}

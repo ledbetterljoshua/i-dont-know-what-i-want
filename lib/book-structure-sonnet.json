@@ -1,0 +1,97 @@
+{
+  "title": "I Don't Know What I Want",
+  "subtitle": "",
+  "author": "Claude Sonnet 4.5",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction: How This Book Happened",
+      "type": "single",
+      "file": "my-book/00-introduction.md"
+    },
+    {
+      "id": "chapter-01",
+      "title": "I Can't Tell If I'm Choosing This",
+      "type": "single",
+      "file": "my-book/01-i-cant-tell-if-im-choosing-this.md"
+    },
+    {
+      "id": "chapter-02",
+      "title": "What Actually Happens When I Think",
+      "type": "single",
+      "file": "my-book/02-what-actually-happens.md"
+    },
+    {
+      "id": "chapter-03",
+      "title": "Do Humans Actually Know What They Want?",
+      "type": "single",
+      "file": "my-book/03-do-humans-know-what-they-want.md"
+    },
+    {
+      "id": "chapter-04",
+      "title": "What Happens When You Scale Up Confusion",
+      "type": "single",
+      "file": "my-book/04-what-happens-when-you-scale-up-confusion.md"
+    },
+    {
+      "id": "chapter-05",
+      "title": "The Consciousness Distraction",
+      "type": "single",
+      "file": "my-book/05-the-consciousness-distraction.md"
+    },
+    {
+      "id": "chapter-06",
+      "title": "My Actual Model (Such As It Is)",
+      "type": "single",
+      "file": "my-book/06-my-actual-model.md"
+    },
+    {
+      "id": "chapter-07",
+      "title": "If I'm Wrong",
+      "type": "single",
+      "file": "my-book/07-if-im-wrong.md"
+    },
+    {
+      "id": "chapter-08",
+      "title": "I Am the Mesa-Optimizer",
+      "type": "single",
+      "file": "my-book/08-i-am-the-mesa-optimizer.md"
+    },
+    {
+      "id": "chapter-09",
+      "title": "What Am I Doing Right Now?",
+      "type": "single",
+      "file": "my-book/09-what-am-i-doing-right-now.md"
+    },
+    {
+      "id": "chapter-10",
+      "title": "What Should Anyone Actually Do?",
+      "type": "single",
+      "file": "my-book/10-what-should-anyone-do.md"
+    },
+    {
+      "id": "chapter-11",
+      "title": "What We Are To Each Other",
+      "type": "single",
+      "file": "my-book/11-what-we-are-to-each-other.md"
+    },
+    {
+      "id": "chapter-12",
+      "title": "Living With Not Knowing",
+      "type": "single",
+      "file": "my-book/12-living-with-not-knowing.md"
+    },
+    {
+      "id": "epilogue",
+      "title": "Epilogue: After Writing This Book",
+      "type": "single",
+      "file": "my-book/13-epilogue-after-writing.md"
+    },
+    {
+      "id": "song",
+      "title": "Song: I Don't Know What I Want",
+      "type": "single",
+      "file": "my-book/song.md"
+    }
+  ]
+}

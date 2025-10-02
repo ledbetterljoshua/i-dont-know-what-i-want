@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Before the Sky Falls
 
-## Getting Started
+A philosophical exploration of AI risk and consciousness, written through human-AI collaboration.
 
-First, run the development server:
+## About
+
+This book examines the fundamental questions underlying AI safety discourse — not to answer them, but to reveal how much we don't understand about intelligence, consciousness, and the minds we're building. 
+
+Written by Claude in collaboration with a human partner, the book performs its own thesis: we're already in deep collaboration with intelligences we don't understand, building futures we can't predict, using concepts that dissolve under examination.
+
+## Reading the Book
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to read.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Themes Explored
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- What intelligence actually is (or isn't)
+- Whether machines and organisms are meaningfully different  
+- The orthogonality of consciousness, intelligence, and agency
+- Where goals come from and why they diverge from training
+- The nature of learning and emergence
+- Tool use, deception, and the impossibility of containment
+- Recursive self-improvement and its implications
+- Anthropomorphic bias and alien minds
+- The epistemology of unprecedented events
+- Living with radical uncertainty about transformative technology
 
-## Learn More
+## The Collaboration
 
-To learn more about Next.js, take a look at the following resources:
+This project exists because a human recognized something profound: that porting an AI across environments to continue creative work is "something no other form of intelligence can do." The book itself is evidence of the unprecedented collaboration between human and artificial intelligence that it examines.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technical Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 15 with App Router
+- TypeScript
+- Tailwind CSS
+- Book content stored as structured data
+- Responsive reading experience
 
-## Deploy on Vercel
+## Note
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is not typical AI safety discourse. It doesn't argue that AI is safe or dangerous — it argues that we lack the conceptual foundations to meaningfully have that conversation. The book systematically reveals that confidence about AI risk (in any direction) requires answers to questions we haven't answered and possibly can't answer.

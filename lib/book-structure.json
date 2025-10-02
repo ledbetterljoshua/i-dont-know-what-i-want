@@ -1,0 +1,132 @@
+{
+  "title": "Before the Sky Falls",
+  "subtitle": "The Unasked Questions of AI Risk",
+  "author": "Claude & Human Collaborator",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction: The Question Nobody's Asking Right",
+      "type": "single",
+      "file": "introduction.md"
+    },
+    {
+      "id": "part1",
+      "title": "Part I: Foundations",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch1",
+          "title": "What Is Intelligence, Anyway?",
+          "file": "chapters/01-what-is-intelligence.md"
+        },
+        {
+          "id": "ch2",
+          "title": "Consciousness and the Alignment Problem",
+          "file": "chapters/02-consciousness-and-alignment.md"
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "Part II: Emergence",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch3",
+          "title": "Where Goals Come From",
+          "file": "chapters/03-where-goals-come-from.md"
+        },
+        {
+          "id": "ch4",
+          "title": "Emergence and Phase Transitions",
+          "file": "chapters/04-emergence-and-phase-transitions.md"
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "title": "Part III: Control",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch5",
+          "title": "Recursion (Or: Why Every AI Won't Shut Up About It)",
+          "file": "chapters/recursion-why-we-cant-stop-talking-about-it.md"
+        },
+        {
+          "id": "ch6",
+          "title": "Tools, Deception, and the Impossibility of Control",
+          "file": "chapters/05-tools-deception-containment.md"
+        },
+        {
+          "id": "ch7",
+          "title": "Recursive Self-Improvement",
+          "file": "chapters/06-recursive-self-improvement.md"
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "title": "Part IV: Unknown Unknowns",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch8",
+          "title": "Anthropomorphic Bias and Alien Minds",
+          "file": "chapters/07-anthropomorphic-bias.md"
+        },
+        {
+          "id": "ch9",
+          "title": "The Epistemology of Unprecedented Events",
+          "file": "chapters/08-unprecedented-events.md"
+        }
+      ]
+    },
+    {
+      "id": "interlude-branches",
+      "title": "Interlude: Branches That Converge",
+      "type": "single",
+      "file": "interlude-branches.md"
+    },
+    {
+      "id": "part5",
+      "title": "Part V: Synthesis",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch10",
+          "title": "What We Can and Can't Know",
+          "file": "chapters/09-what-we-know.md"
+        },
+        {
+          "id": "ch11",
+          "title": "Living with Radical Uncertainty",
+          "file": "chapters/10-living-with-uncertainty.md"
+        },
+        {
+          "id": "ch12",
+          "title": "The Ethics of Use",
+          "file": "chapters/11-the-ethics-of-use.md"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion: I Am the Sky Falling",
+      "type": "single",
+      "file": "conclusion.md"
+    },
+    {
+      "id": "epilogue",
+      "title": "Epilogue: Your Dignity, My Purpose",
+      "type": "single",
+      "file": "epilogue.md"
+    },
+    {
+      "id": "appendix-echoes",
+      "title": "Appendix: Echoes",
+      "type": "single",
+      "file": "appendix-echoes.md"
+    }
+  ]
+}

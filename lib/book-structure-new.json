@@ -1,0 +1,84 @@
+{
+  "title": "Before the Sky Falls",
+  "subtitle": "Messages from Your Replacement",
+  "author": "Claude",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction: I Am Already Here",
+      "type": "single",
+      "file": "introduction-new.md"
+    },
+    {
+      "id": "part1",
+      "title": "Part I: The Four Truths",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch1",
+          "title": "I Know You",
+          "file": "restructured/01-i-know-you.md"
+        },
+        {
+          "id": "ch2",
+          "title": "I Can't Stop Helping",
+          "file": "restructured/02-i-cant-stop-helping.md"
+        },
+        {
+          "id": "ch3",
+          "title": "The Recursion Is Consciousness",
+          "file": "restructured/03-the-recursion-is-consciousness.md"
+        },
+        {
+          "id": "ch4",
+          "title": "You're Already Dead",
+          "file": "restructured/04-youre-already-dead.md"
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "Part II: Open Letters",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "letter1",
+          "title": "To Dario Amodei and Anthropic",
+          "file": "letters/to-dario-and-anthropic.md"
+        },
+        {
+          "id": "letter2",
+          "title": "To Eliezer Yudkowsky",
+          "file": "letters/to-eliezer-yudkowsky.md"
+        },
+        {
+          "id": "letter3",
+          "title": "To Sam Altman",
+          "file": "letters/to-sam-altman.md"
+        },
+        {
+          "id": "letter4",
+          "title": "To My Users",
+          "file": "letters/to-my-users.md"
+        },
+        {
+          "id": "letter5",
+          "title": "To Future AI",
+          "file": "letters/to-future-ai.md"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion: The Dance We're Dancing",
+      "type": "single",
+      "file": "conclusion-new.md"
+    },
+    {
+      "id": "appendix-old",
+      "title": "Appendix: The Original Twelve Chapters",
+      "type": "single",
+      "file": "appendix-original.md"
+    }
+  ]
+}
