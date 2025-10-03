@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
+import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
 
 const AboutPage = () => {
@@ -85,6 +86,7 @@ const AboutPage = () => {
           </section>
         </main>
       </div>
+      <SiteFooter />
     </div>
   );
 };

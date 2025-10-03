@@ -22,10 +22,10 @@ const SiteNav = ({ className }: SiteNavProps) => {
         className,
       )}
     >
-      <span className="text-[0.65rem] uppercase tracking-[0.35em] text-slate-400 sm:text-xs">
+      <span className="text-xs uppercase tracking-[0.3em] text-slate-400 sm:tracking-[0.35em]">
         I Don&apos;t Know What I Want
       </span>
-      <div className="flex flex-wrap items-center gap-3 text-[0.65rem] uppercase tracking-[0.28em] text-slate-500 sm:text-[0.7rem]">
+      <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.25em] text-slate-500 sm:gap-3 sm:tracking-[0.28em]">
         {links.map((link) => (
           <Link
             key={link.href}

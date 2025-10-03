@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
 
 export default function SongPage() {

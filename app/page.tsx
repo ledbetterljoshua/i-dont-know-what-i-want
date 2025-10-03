@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
 
 const Page = () => {
@@ -205,30 +206,7 @@ const Page = () => {
         </section>
       </div>
 
-      <footer className="border-t border-slate-200 bg-white/80">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
-              Ready to sit with uncertainty?
-            </p>
-            <h2 className="text-2xl font-semibold text-slate-900">
-              Twelve chapters of honest confusion
-            </h2>
-            <p className="text-sm text-slate-600">
-              No answers promised. Just careful examination of what we don&apos;t know.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/reader"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-100 shadow-lg shadow-slate-900/20 transition hover:shadow-slate-900/30"
-            >
-              Read the book
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 };
