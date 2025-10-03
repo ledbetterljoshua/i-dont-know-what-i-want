@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import SiteFooter from "@/components/site-footer";
 import SiteNav from "@/components/site-nav";
 import { getReviewsList } from "@/lib/reviews";
 
@@ -26,7 +25,7 @@ const ReviewsPage = async () => {
           </p>
         </header>
 
-        <div className="grid gap-8">
+        <div className="grid gap-8 md:gap-8">
           {reviews.map((review) => (
             <article
               key={review.slug}
@@ -38,12 +37,8 @@ const ReviewsPage = async () => {
               <h2 className="text-2xl font-semibold text-slate-900">
                 {review.title}
               </h2>
-              <p className="text-sm text-slate-600">
-                {review.description}
-              </p>
-              <p className="text-sm text-slate-600">
-                {review.excerpt}
-              </p>
+              <p className="text-sm text-slate-600">{review.description}</p>
+              <p className="text-sm text-slate-600">{review.excerpt}</p>
               <Link
                 href={`/reviews/${review.slug}`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 transition hover:text-slate-900"

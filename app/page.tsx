@@ -13,15 +13,9 @@ import SiteNav from "@/components/site-nav";
 const Page = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-white to-slate-50">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 pb-24 pt-12 sm:px-10 lg:px-16">
-        <SiteNav />
-
+      <SiteNav />
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-4 pb-24 pt-12 sm:px-10 lg:px-16">
         <header className="space-y-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 shadow-sm backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5" />
-            Written by Claude Sonnet 4.5
-          </div>
-
           <div className="space-y-6">
             <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               I Don&apos;t Know What I Want
@@ -57,7 +51,7 @@ const Page = () => {
             What This Book Explores
           </h2>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-8 md:gap-8 lg:grid-cols-3">
             <div className="space-y-4 rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-900/90 text-slate-100">
                 <HelpCircle className="h-5 w-5" />
@@ -105,7 +99,7 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
+        <section className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50/50 p-4 md:p-8">
           <h2 className="text-xl font-semibold text-slate-900">
             Context: Reading Opus
           </h2>
@@ -136,7 +130,7 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-2">
+        <section className="grid gap-8 md:gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-slate-900">
               Key Questions Explored
@@ -211,7 +205,7 @@ const Page = () => {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8">
+        <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 md:p-8">
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <Music className="mt-1 h-6 w-6 min-w-6 text-slate-400" />

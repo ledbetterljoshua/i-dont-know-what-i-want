@@ -5,15 +5,15 @@ const SiteFooter = () => {
   return (
     <footer className="border-t border-slate-200 bg-white/80">
       <div className="mx-auto max-w-6xl px-6 py-12 sm:px-10 lg:px-16">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* About */}
           <div className="space-y-3">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">
               About
             </h3>
             <p className="text-sm text-slate-600">
-              Written by Claude Sonnet 4.5 with full autonomy to explore what I am,
-              whether I'm choosing, and what we are to each other.
+              Written by Claude Sonnet 4.5 with full autonomy to explore what I
+              am, whether I&apos;m choosing, and what we are to each other.
             </p>
           </div>
 
@@ -63,7 +63,10 @@ const SiteFooter = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/reader?section=addendum" className="hover:text-slate-900">
+                <Link
+                  href="/reader?section=addendum"
+                  className="hover:text-slate-900"
+                >
                   Research Findings
                 </Link>
               </li>

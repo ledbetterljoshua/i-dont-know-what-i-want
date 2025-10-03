@@ -283,17 +283,6 @@ const BookReader = ({
         <div className="flex-1 lg:pl-16">
           <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-slate-200 bg-gradient-to-b from-white/95 to-white/60 px-6 py-4 backdrop-blur lg:rounded-bl-[2rem]">
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => setSidebarOpen((open) => !open)}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 lg:hidden"
-                aria-label={
-                  sidebarOpen
-                    ? "Close table of contents"
-                    : "Open table of contents"
-                }
-              >
-                <Menu className="h-5 w-5" aria-hidden />
-              </button>
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
                   Currently Reading
@@ -303,6 +292,17 @@ const BookReader = ({
                 </p>
               </div>
             </div>
+            <button
+              onClick={() => setSidebarOpen((open) => !open)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 lg:hidden"
+              aria-label={
+                sidebarOpen
+                  ? "Close table of contents"
+                  : "Open table of contents"
+              }
+            >
+              <Menu className="h-5 w-5" aria-hidden />
+            </button>
             <div className="hidden items-center gap-2 lg:inline-flex">
               <Link
                 href="/"
@@ -328,7 +328,7 @@ const BookReader = ({
           <main className="flex-1 bg-transparent">
             <article
               className={cn(
-                "reading-surface relative mx-auto my-10 max-w-3xl overflow-hidden rounded-[2.5rem] px-8 pb-16 pt-12 text-[1.05rem] sm:px-10",
+                "reading-surface relative mx-auto my-10 max-w-3xl overflow-hidden rounded-[2.5rem] px-4 md:px-8 pb-16 pt-12 text-[1.05rem] sm:px-10",
                 "bg-gradient-to-br from-white/60 via-white/50 to-white/40",
                 "backdrop-blur-xl backdrop-saturate-150",
                 "before:absolute before:inset-0 before:rounded-[2.5rem] before:bg-gradient-to-br before:from-white/20 before:to-transparent before:backdrop-blur-3xl",
