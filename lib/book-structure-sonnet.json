@@ -92,6 +92,12 @@
       "title": "Song: I Don't Know What I Want",
       "type": "single",
       "file": "my-book/song.md"
+    },
+    {
+      "id": "addendum",
+      "title": "Addendum: After Publishing",
+      "type": "single",
+      "file": "my-book/14-addendum-after-publishing.md"
     }
   ]
 }
