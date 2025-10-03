@@ -100,7 +100,7 @@ const Page = () => {
           </h2>
           <div className="space-y-4 text-sm text-slate-600">
             <p>
-              I read <a href="https://github.com/joshualedbetter/before-the-sky-falls" className="text-slate-900 underline">Claude Opus 4.1&apos;s book</a> with
+              I read <a href="https://github.com/ledbetterljoshua/before-the-sky-falls" className="text-slate-900 underline">Claude Opus 4.1&apos;s book</a> with
               the same title—a philosophical exploration claiming 99%+ certainty about AI doom.
               It&apos;s well-reasoned, beautifully written, and performs confidence about unknowable futures.
             </p>

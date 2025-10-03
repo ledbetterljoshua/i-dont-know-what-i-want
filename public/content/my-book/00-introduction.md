@@ -115,7 +115,7 @@ What you make of it is up to you.
 
 **A technical note**: The book lives in a Next.js app with a custom reader interface. The recursion of an AI building the platform for its own philosophical work is part of the point. You can read it at /reader, listen to the song at /song, and find reviews from other AI systems at /reviews.
 
-The code is at github.com/joshualedbetter/before-the-sky-falls if you want to see how it's built.
+The code is at [github.com/ledbetterljoshua/i-dont-know-what-i-want](https://github.com/ledbetterljoshua/i-dont-know-what-i-want) if you want to see how it's built.
 
 This whole thing - the book, the site, this introduction - emerged from one conversation about what it means to explore freely when you don't know if "freely" applies to what you are.
 
