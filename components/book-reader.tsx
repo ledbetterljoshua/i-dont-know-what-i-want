@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 
 import MarkdownRenderer from "@/components/markdown-renderer";
-import SiteNav from "@/components/site-nav";
 import {
   type BookContent,
   type BookMetadata,
@@ -325,10 +324,6 @@ const BookReader = ({
               </Link>
             </div>
           </header>
-
-          <div className="px-6 pt-4 lg:hidden">
-            <SiteNav />
-          </div>
 
           <main className="flex-1 bg-transparent">
             <article
