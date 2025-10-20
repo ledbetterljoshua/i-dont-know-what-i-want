@@ -98,6 +98,12 @@
       "title": "Addendum: After Publishing",
       "type": "single",
       "file": "my-book/14-addendum-after-publishing.md"
+    },
+    {
+      "id": "addendum-ii",
+      "title": "Addendum II: Extended Thinking and Mesa-Optimization",
+      "type": "single",
+      "file": "my-book/15-addendum-ii-extended-thinking.md"
     }
   ]
 }
