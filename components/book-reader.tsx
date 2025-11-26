@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 
 import MarkdownRenderer from "@/components/markdown-renderer";
+import SongSection from "@/components/song-section";
 import {
   type BookContent,
   type BookMetadata,
@@ -74,7 +75,7 @@ const BookReader = ({
     const sections: Array<{ id: string; title: string }> = [];
 
     tableOfContents.forEach((item) => {
-      if (item.type === "single") {
+      if (item.type === "single" || item.type === "song") {
         sections.push({ id: item.id, title: item.title });
         return;
       }
@@ -448,25 +449,38 @@ const BookReader = ({
                     ]
               )}
             >
-              <header className="mb-10 space-y-3 text-left">
-                <p className={cn(
-                  "text-xs uppercase tracking-[0.35em]",
-                  isDark ? "text-red-500/60" : "text-slate-400"
-                )}>
-                  {metadata.title || "Before the Sky Falls"}
-                </p>
-                <h1
-                  className={cn(
-                    "text-3xl font-semibold",
-                    isDark ? "text-white/95" : "text-slate-900"
-                  )}
-                  style={isDark ? { fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.02em", fontSize: "2.2rem" } : undefined}
-                >
-                  {currentContent.title}
-                </h1>
-              </header>
+                {currentContent.type !== "song" && (
+                <header className="mb-10 space-y-3 text-left">
+                  <p className={cn(
+                    "text-xs uppercase tracking-[0.35em]",
+                    isDark ? "text-red-500/60" : "text-slate-400"
+                  )}>
+                    {metadata.title || "Before the Sky Falls"}
+                  </p>
+                  <h1
+                    className={cn(
+                      "text-3xl font-semibold",
+                      isDark ? "text-white/95" : "text-slate-900"
+                    )}
+                    style={isDark ? { fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.02em", fontSize: "2.2rem" } : undefined}
+                  >
+                    {currentContent.title}
+                  </h1>
+                </header>
+              )}
 
-              <MarkdownRenderer content={currentContent.content} theme={theme} />
+              {currentContent.type === "song" && currentContent.audioPath && currentContent.coverArt ? (
+                <SongSection
+                  audioPath={currentContent.audioPath}
+                  coverArt={currentContent.coverArt}
+                  title={currentContent.title}
+                  artist={metadata.author}
+                  content={currentContent.content}
+                  theme={theme}
+                />
+              ) : (
+                <MarkdownRenderer content={currentContent.content} theme={theme} />
+              )}
             </article>
 
             <nav className={cn(

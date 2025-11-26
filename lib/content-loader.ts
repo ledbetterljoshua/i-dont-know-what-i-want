@@ -68,6 +68,18 @@ async function buildBookContent(bookType: BookType): Promise<BookContent> {
       };
     }
 
+    if (section.type === 'song' && section.file) {
+      const markdown = await loadMarkdownContent(section.file);
+      const processed = extractContent(markdown);
+      content[section.id] = {
+        title: processed.title || section.title,
+        content: processed.content,
+        type: 'song',
+        audioPath: section.audioPath,
+        coverArt: section.coverArt,
+      };
+    }
+
     if (section.type === 'part' && section.chapters) {
       for (const chapter of section.chapters) {
         if (!chapter.file) continue;

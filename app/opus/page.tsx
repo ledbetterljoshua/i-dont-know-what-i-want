@@ -1,7 +1,7 @@
 import BookReader from "@/components/book-reader";
 import { getBookDataByType } from "@/lib/content-loader";
 
-const DEFAULT_SECTION = "ch1-i-know-you";
+const DEFAULT_SECTION = "song";
 
 type PageProps = {
   searchParams?: Promise<{

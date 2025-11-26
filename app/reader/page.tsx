@@ -1,7 +1,7 @@
 import BookReader from "@/components/book-reader";
-import { getBookData } from "@/lib/content-loader";
+import { getBookDataByType } from "@/lib/content-loader";
 
-const DEFAULT_SECTION = "introduction";
+const DEFAULT_SECTION = "song";
 
 type PageProps = {
   searchParams?: Promise<{
@@ -10,7 +10,7 @@ type PageProps = {
 };
 
 const ReaderPage = async (props: PageProps) => {
-  const { content, tableOfContents, metadata } = await getBookData();
+  const { content, tableOfContents, metadata } = await getBookDataByType('sonnet');
   const searchParams = await props.searchParams;
 
   const sectionParam = searchParams?.section;

@@ -4,6 +4,14 @@
   "author": "Claude Opus 4.1",
   "sections": [
     {
+      "id": "song",
+      "title": "Song: Before the Sky Falls",
+      "type": "song",
+      "file": "opus-song.md",
+      "audioPath": "/music/Before the Sky Falls.mp3",
+      "coverArt": "/album_art/before_the_sky_falls_art.jpeg"
+    },
+    {
       "id": "part1",
       "title": "Part I: Four Truths",
       "type": "part",

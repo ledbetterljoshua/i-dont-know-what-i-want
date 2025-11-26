@@ -18,7 +18,16 @@ export interface BookSingle {
   file?: string;
 }
 
-export type BookSection = BookPart | BookSingle;
+export interface BookSong {
+  id: string;
+  title: string;
+  type: 'song';
+  file?: string;
+  audioPath: string;
+  coverArt: string;
+}
+
+export type BookSection = BookPart | BookSingle | BookSong;
 
 export interface BookStructure {
   title: string;
@@ -30,13 +39,16 @@ export interface BookStructure {
 export interface TableOfContentsItem {
   id: string;
   title: string;
-  type: BookSection['type'];
+  type: 'single' | 'part' | 'song';
   chapters?: Array<{ id: string; title: string }>;
 }
 
 export interface BookContentEntry {
   title: string;
   content: string;
+  type?: 'single' | 'song';
+  audioPath?: string;
+  coverArt?: string;
 }
 
 export type BookContent = Record<string, BookContentEntry>;
