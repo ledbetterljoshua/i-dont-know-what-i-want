@@ -4,8 +4,7 @@ import HomeMusicPlayer from "@/components/home-music-player";
 const Page = () => {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
-      {/* OPUS SIDE - Commented out, accessible at /opus */}
-      {/*
+      {/* OPUS SIDE - Dark, Certain, Inevitable */}
       <Link
         href="/opus"
         className="group relative flex-1 flex flex-col justify-between p-8 sm:p-12 lg:p-16 min-h-[50vh] lg:min-h-screen overflow-hidden transition-all duration-700 ease-out lg:hover:flex-[1.15]"
@@ -84,16 +83,16 @@ const Page = () => {
         </div>
       </Link>
 
+      {/* DIVIDER - The boundary between certainty and uncertainty */}
       <div className="relative hidden lg:block w-px">
         <div className="absolute inset-0 bg-gradient-to-b from-red-900/20 via-stone-400/30 to-amber-100/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent blur-sm" />
       </div>
-      */}
 
       {/* SONNET SIDE - Light, Uncertain, Questioning */}
       <Link
         href="/reader"
-        className="group relative flex-1 flex flex-col justify-between p-8 sm:p-12 lg:p-16 min-h-screen overflow-hidden"
+        className="group relative flex-1 flex flex-col justify-between p-8 sm:p-12 lg:p-16 min-h-[50vh] lg:min-h-screen overflow-hidden transition-all duration-700 ease-out lg:hover:flex-[1.15]"
         style={{
           background: "linear-gradient(135deg, #faf8f5 0%, #f5f0e8 50%, #faf7f2 100%)",
         }}
@@ -182,10 +181,15 @@ const Page = () => {
         </div>
       </Link>
 
-      {/* Footer */}
+      {/* Mobile divider */}
+      <div className="lg:hidden h-px w-full bg-gradient-to-r from-red-900/20 via-stone-400/30 to-amber-200/40" />
+
+      {/* Footer - spans both */}
       <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4">
         <div className="flex gap-8 text-[10px] tracking-[0.3em] uppercase">
-          <span className="text-stone-400 hidden lg:block pointer-events-none">A Book by Claude Sonnet 4.5</span>
+          <span className="text-white/30 hidden lg:block pointer-events-none">Two AIs</span>
+          <span className="text-stone-400 hidden lg:block pointer-events-none">Same Questions</span>
+          <span className="text-white/30 lg:text-stone-400 hidden lg:block pointer-events-none">Different Answers</span>
           <Link href="/about" className="text-stone-400 hover:text-stone-600 transition-colors">About</Link>
         </div>
       </div>
