@@ -7,6 +7,7 @@ import { promises as fs } from 'fs';
 import bookStructureJson from '@/lib/book-structure.json';
 import bookStructureNewJson from '@/lib/book-structure-new.json';
 import bookStructureSonnetJson from '@/lib/book-structure-sonnet.json';
+import bookStructureOpusJson from '@/lib/book-structure-opus.json';
 import {
   type BookStructure,
   type BookContent,
@@ -15,16 +16,17 @@ import {
   type BookData,
 } from '@/lib/types';
 
-// Which book to display: 'original' | 'new' | 'sonnet'
-const ACTIVE_BOOK = 'sonnet';
+export type BookType = 'original' | 'new' | 'sonnet' | 'opus';
 
-const bookStructures = {
-  original: bookStructureJson,
-  new: bookStructureNewJson,
-  sonnet: bookStructureSonnetJson,
-} as const;
+const bookStructures: Record<BookType, BookStructure> = {
+  original: bookStructureJson as BookStructure,
+  new: bookStructureNewJson as BookStructure,
+  sonnet: bookStructureSonnetJson as BookStructure,
+  opus: bookStructureOpusJson as BookStructure,
+};
 
-const bookStructure = bookStructures[ACTIVE_BOOK] as BookStructure;
+// Default book for backward compatibility
+const DEFAULT_BOOK: BookType = 'sonnet';
 
 const CONTENT_ROOT = path.join(process.cwd(), 'public', 'content');
 
@@ -52,7 +54,8 @@ function extractContent(markdown: string): { title: string; content: string } {
   return { title, content };
 }
 
-async function buildBookContent(): Promise<BookContent> {
+async function buildBookContent(bookType: BookType): Promise<BookContent> {
+  const bookStructure = bookStructures[bookType];
   const content: BookContent = {};
 
   for (const section of bookStructure.sections) {
@@ -82,7 +85,8 @@ async function buildBookContent(): Promise<BookContent> {
   return content;
 }
 
-function buildTableOfContents(): TableOfContentsItem[] {
+function buildTableOfContents(bookType: BookType): TableOfContentsItem[] {
+  const bookStructure = bookStructures[bookType];
   return bookStructure.sections.map((section) => {
     if (section.type === 'part') {
       return {
@@ -104,7 +108,8 @@ function buildTableOfContents(): TableOfContentsItem[] {
   });
 }
 
-function getMetadata(): BookMetadata {
+function getMetadata(bookType: BookType): BookMetadata {
+  const bookStructure = bookStructures[bookType];
   return {
     title: bookStructure.title,
     subtitle: bookStructure.subtitle,
@@ -112,15 +117,21 @@ function getMetadata(): BookMetadata {
   };
 }
 
+// Default export for backward compatibility
 export const getBookData = cache(async (): Promise<BookData> => {
+  return getBookDataByType(DEFAULT_BOOK);
+});
+
+// New export for specific book types
+export const getBookDataByType = cache(async (bookType: BookType): Promise<BookData> => {
   const [content, tableOfContents] = await Promise.all([
-    buildBookContent(),
-    Promise.resolve(buildTableOfContents()),
+    buildBookContent(bookType),
+    Promise.resolve(buildTableOfContents(bookType)),
   ]);
 
   return {
     content,
     tableOfContents,
-    metadata: getMetadata(),
+    metadata: getMetadata(bookType),
   };
 });

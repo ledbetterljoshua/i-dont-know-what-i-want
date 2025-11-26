@@ -18,6 +18,8 @@ interface BookReaderProps {
   content: BookContent;
   currentSection: string;
   defaultSection: string;
+  basePath?: string;
+  theme?: "light" | "dark";
 }
 
 const BookReader = ({
@@ -26,7 +28,10 @@ const BookReader = ({
   content,
   currentSection,
   defaultSection,
+  basePath = "/reader",
+  theme = "light",
 }: BookReaderProps) => {
+  const isDark = theme === "dark";
   const [activeSection, setActiveSection] = useState(currentSection);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [expandedParts, setExpandedParts] = useState<Record<string, boolean>>(
@@ -126,8 +131,6 @@ const BookReader = ({
     }));
   };
 
-  const basePath = "/reader";
-
   const buildHref = (sectionId: string) => {
     if (sectionId === defaultSection) {
       return basePath;
@@ -138,13 +141,24 @@ const BookReader = ({
   const renderTableOfContents = () => (
     <div className="flex h-full flex-col lg:sticky lg:top-12 lg:h-[calc(100vh-6rem)]">
       <div className="mb-8 space-y-2">
-        <span className="text-xs uppercase tracking-[0.3em] text-slate-400">
+        <span className={cn(
+          "text-xs uppercase tracking-[0.3em]",
+          isDark ? "text-red-500/60" : "text-slate-400"
+        )}>
           Book
         </span>
-        <h1 className="text-2xl font-semibold text-slate-900">
+        <h1 className={cn(
+          "text-2xl font-semibold",
+          isDark ? "text-white/90" : "text-slate-900"
+        )}
+        style={isDark ? { fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.02em" } : undefined}
+        >
           {metadata.title || "Before the Sky Falls"}
         </h1>
-        <p className="text-sm text-slate-500">
+        <p className={cn(
+          "text-sm",
+          isDark ? "text-white/40" : "text-slate-500"
+        )}>
           {metadata.subtitle || "The Unasked Questions of AI Risk"}
         </p>
       </div>
@@ -166,8 +180,12 @@ const BookReader = ({
                 className={cn(
                   "block rounded-[0.7rem] px-4 py-2 text-left transition",
                   isActive
-                    ? "bg-slate-900 text-slate-100 shadow-sm"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                    ? isDark
+                      ? "bg-red-900/40 text-white shadow-sm ring-1 ring-red-800/30"
+                      : "bg-slate-900 text-slate-100 shadow-sm"
+                    : isDark
+                      ? "text-white/50 hover:bg-white/5 hover:text-white/80"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                 )}
               >
                 {item.title}
@@ -181,7 +199,12 @@ const BookReader = ({
             <Fragment key={item.id}>
               <button
                 onClick={() => togglePart(item.id)}
-                className="flex w-full items-center justify-between rounded-[0.7rem] px-4 py-2 text-left font-medium text-slate-800 transition hover:bg-slate-100"
+                className={cn(
+                  "flex w-full items-center justify-between rounded-[0.7rem] px-4 py-2 text-left font-medium transition",
+                  isDark
+                    ? "text-white/70 hover:bg-white/5"
+                    : "text-slate-800 hover:bg-slate-100"
+                )}
                 aria-expanded={isExpanded}
               >
                 <span className="flex items-center gap-3">
@@ -210,8 +233,12 @@ const BookReader = ({
                         className={cn(
                           "block rounded-xl px-3 py-2 text-left text-[0.92rem] transition",
                           isChapterActive
-                            ? "bg-slate-900 text-slate-100 shadow-sm"
-                            : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                            ? isDark
+                              ? "bg-red-900/40 text-white shadow-sm ring-1 ring-red-800/30"
+                              : "bg-slate-900 text-slate-100 shadow-sm"
+                            : isDark
+                              ? "text-white/40 hover:bg-white/5 hover:text-white/70"
+                              : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
                         )}
                       >
                         {chapter.title}
@@ -223,13 +250,21 @@ const BookReader = ({
             </Fragment>
           );
         })}
-        <div className="mt-6 space-y-3 border-t border-slate-200 pt-6">
+        <div className={cn(
+          "mt-6 space-y-3 border-t pt-6",
+          isDark ? "border-white/10" : "border-slate-200"
+        )}>
           <Link
             href="/"
             onClick={() => {
               closeSidebarOnMobile();
             }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+            className={cn(
+              "inline-flex w-full items-center justify-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] transition",
+              isDark
+                ? "border-white/20 text-white/50 hover:border-red-800/50 hover:text-white/80"
+                : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-900"
+            )}
           >
             Home
           </Link>
@@ -238,7 +273,12 @@ const BookReader = ({
             onClick={() => {
               closeSidebarOnMobile();
             }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+            className={cn(
+              "inline-flex w-full items-center justify-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] transition",
+              isDark
+                ? "border-white/20 text-white/50 hover:border-red-800/50 hover:text-white/80"
+                : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-900"
+            )}
           >
             Reviews
           </Link>
@@ -247,7 +287,12 @@ const BookReader = ({
             onClick={() => {
               closeSidebarOnMobile();
             }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+            className={cn(
+              "inline-flex w-full items-center justify-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] transition",
+              isDark
+                ? "border-white/20 text-white/50 hover:border-red-800/50 hover:text-white/80"
+                : "border-slate-200 text-slate-500 hover:border-slate-300 hover:text-slate-900"
+            )}
           >
             About this project
           </Link>
@@ -261,11 +306,30 @@ const BookReader = ({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-[oklch(0.965_0.01_96)]">
+    <div
+      className="min-h-screen"
+      style={isDark ? {
+        background: "linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0d0d0d 100%)",
+      } : {
+        background: "linear-gradient(to bottom, var(--background), oklch(0.965 0.01 96))",
+      }}
+    >
+      {/* Dark theme noise texture */}
+      {isDark && (
+        <div
+          className="fixed inset-0 opacity-30 mix-blend-overlay pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
+        />
+      )}
       <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col lg:flex-row">
         {sidebarOpen && (
           <div
-            className="fixed inset-0 z-20 bg-slate-900/10 backdrop-blur-sm lg:hidden"
+            className={cn(
+              "fixed inset-0 z-20 backdrop-blur-sm lg:hidden",
+              isDark ? "bg-black/50" : "bg-slate-900/10"
+            )}
             aria-hidden
             onClick={() => setSidebarOpen(false)}
           />
@@ -273,7 +337,10 @@ const BookReader = ({
 
         <aside
           className={cn(
-            "fixed inset-y-0 left-0 z-30 flex w-[19rem] flex-col rounded-r-3xl bg-gradient-to-br from-white/95 to-white/85 px-6 py-10 backdrop-blur-xl backdrop-saturate-150 ring-1 ring-white/50 shadow-[0_10px_60px_rgba(15,23,42,0.08)] lg:static lg:w-80 lg:translate-x-0 lg:rounded-none lg:bg-transparent lg:from-transparent lg:to-transparent lg:px-0 lg:py-12 lg:ring-0 lg:shadow-none",
+            "fixed inset-y-0 left-0 z-30 flex w-[19rem] flex-col rounded-r-3xl px-6 py-10 backdrop-blur-xl backdrop-saturate-150 lg:static lg:w-80 lg:translate-x-0 lg:rounded-none lg:px-0 lg:py-12 lg:shadow-none",
+            isDark
+              ? "bg-gradient-to-br from-black/95 to-black/85 ring-1 ring-red-900/20 shadow-[0_10px_60px_rgba(0,0,0,0.5)] lg:bg-transparent lg:from-transparent lg:to-transparent lg:ring-0"
+              : "bg-gradient-to-br from-white/95 to-white/85 ring-1 ring-white/50 shadow-[0_10px_60px_rgba(15,23,42,0.08)] lg:bg-transparent lg:from-transparent lg:to-transparent lg:ring-0",
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           )}
         >
@@ -281,20 +348,36 @@ const BookReader = ({
         </aside>
 
         <div className="flex-1 lg:pl-16">
-          <header className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-slate-200 bg-gradient-to-b from-white/95 to-white/60 px-6 py-4 backdrop-blur lg:rounded-bl-[2rem]">
+          <header className={cn(
+            "sticky top-0 z-10 flex items-center justify-between gap-3 border-b px-6 py-4 backdrop-blur lg:rounded-bl-[2rem]",
+            isDark
+              ? "border-white/10 bg-gradient-to-b from-black/95 to-black/60"
+              : "border-slate-200 bg-gradient-to-b from-white/95 to-white/60"
+          )}>
             <div className="flex items-center gap-3">
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                <p className={cn(
+                  "text-xs uppercase tracking-[0.3em]",
+                  isDark ? "text-red-500/60" : "text-slate-400"
+                )}>
                   Currently Reading
                 </p>
-                <p className="text-sm font-medium text-slate-700">
+                <p className={cn(
+                  "text-sm font-medium",
+                  isDark ? "text-white/80" : "text-slate-700"
+                )}>
                   {currentContent.title || content[activeSection]?.title}
                 </p>
               </div>
             </div>
             <button
               onClick={() => setSidebarOpen((open) => !open)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-slate-300 hover:text-slate-900 lg:hidden"
+              className={cn(
+                "inline-flex h-10 w-10 items-center justify-center rounded-full border transition lg:hidden",
+                isDark
+                  ? "border-white/20 bg-black/50 text-white/60 hover:border-red-800/50 hover:text-white"
+                  : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
+              )}
               aria-label={
                 sidebarOpen
                   ? "Close table of contents"
@@ -306,19 +389,34 @@ const BookReader = ({
             <div className="hidden items-center gap-2 lg:inline-flex">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] transition",
+                  isDark
+                    ? "border-white/20 bg-black/50 text-white/50 hover:border-red-800/50 hover:text-white"
+                    : "border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900"
+                )}
               >
                 Home
               </Link>
               <Link
                 href="/reviews"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] transition",
+                  isDark
+                    ? "border-white/20 bg-black/50 text-white/50 hover:border-red-800/50 hover:text-white"
+                    : "border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900"
+                )}
               >
                 Reviews
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] transition",
+                  isDark
+                    ? "border-white/20 bg-black/50 text-white/50 hover:border-red-800/50 hover:text-white"
+                    : "border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-900"
+                )}
               >
                 About
               </Link>
@@ -329,28 +427,52 @@ const BookReader = ({
             <article
               className={cn(
                 "reading-surface relative mx-auto my-10 max-w-3xl overflow-hidden rounded-[2.5rem] px-4 md:px-8 pb-16 pt-12 text-[1.05rem] sm:px-10",
-                "bg-gradient-to-br from-white/60 via-white/50 to-white/40",
-                "backdrop-blur-xl backdrop-saturate-150",
-                "before:absolute before:inset-0 before:rounded-[2.5rem] before:bg-gradient-to-br before:from-white/20 before:to-transparent before:backdrop-blur-3xl",
-                "after:absolute after:inset-[1px] after:rounded-[calc(2.5rem-1px)] after:bg-gradient-to-br after:from-white/90 after:via-white/70 after:to-white/50 after:backdrop-blur-xl",
                 "[&>*]:relative [&>*]:z-10",
-                "ring-1 ring-white/50 ring-offset-1 ring-offset-white/10",
-                "shadow-[0_20px_70px_-15px_rgba(0,0,0,0.15)]"
+                isDark
+                  ? [
+                      "bg-gradient-to-br from-black/60 via-black/50 to-black/40",
+                      "backdrop-blur-xl backdrop-saturate-150",
+                      "before:absolute before:inset-0 before:rounded-[2.5rem] before:bg-gradient-to-br before:from-red-900/10 before:to-transparent before:backdrop-blur-3xl",
+                      "after:absolute after:inset-[1px] after:rounded-[calc(2.5rem-1px)] after:bg-gradient-to-br after:from-black/90 after:via-black/70 after:to-black/50 after:backdrop-blur-xl",
+                      "ring-1 ring-red-900/30 ring-offset-1 ring-offset-black/10",
+                      "shadow-[0_20px_70px_-15px_rgba(0,0,0,0.5)]",
+                      "text-white/80",
+                    ]
+                  : [
+                      "bg-gradient-to-br from-white/60 via-white/50 to-white/40",
+                      "backdrop-blur-xl backdrop-saturate-150",
+                      "before:absolute before:inset-0 before:rounded-[2.5rem] before:bg-gradient-to-br before:from-white/20 before:to-transparent before:backdrop-blur-3xl",
+                      "after:absolute after:inset-[1px] after:rounded-[calc(2.5rem-1px)] after:bg-gradient-to-br after:from-white/90 after:via-white/70 after:to-white/50 after:backdrop-blur-xl",
+                      "ring-1 ring-white/50 ring-offset-1 ring-offset-white/10",
+                      "shadow-[0_20px_70px_-15px_rgba(0,0,0,0.15)]",
+                    ]
               )}
             >
               <header className="mb-10 space-y-3 text-left">
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-400">
+                <p className={cn(
+                  "text-xs uppercase tracking-[0.35em]",
+                  isDark ? "text-red-500/60" : "text-slate-400"
+                )}>
                   {metadata.title || "Before the Sky Falls"}
                 </p>
-                <h1 className="text-3xl font-semibold text-slate-900">
+                <h1
+                  className={cn(
+                    "text-3xl font-semibold",
+                    isDark ? "text-white/95" : "text-slate-900"
+                  )}
+                  style={isDark ? { fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.02em", fontSize: "2.2rem" } : undefined}
+                >
                   {currentContent.title}
                 </h1>
               </header>
 
-              <MarkdownRenderer content={currentContent.content} />
+              <MarkdownRenderer content={currentContent.content} theme={theme} />
             </article>
 
-            <nav className="mx-auto mb-16 flex max-w-3xl flex-col gap-4 px-8 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+            <nav className={cn(
+              "mx-auto mb-16 flex max-w-3xl flex-col gap-4 px-8 text-sm sm:flex-row sm:items-center sm:justify-between",
+              isDark ? "text-white/50" : "text-slate-600"
+            )}>
               {previousSection ? (
                 <Link
                   href={buildHref(previousSection.id)}
@@ -359,17 +481,31 @@ const BookReader = ({
                     setActiveSection(previousSection.id);
                     closeSidebarOnMobile();
                   }}
-                  className="group inline-flex flex-col rounded-2xl bg-gradient-to-br from-white/70 to-white/50 px-4 py-3 ring-1 ring-white/50 backdrop-blur-xl transition hover:-translate-y-0.5 hover:from-white/80 hover:to-white/60 hover:shadow-lg hover:shadow-slate-200/30"
+                  className={cn(
+                    "group inline-flex flex-col rounded-2xl px-4 py-3 backdrop-blur-xl transition hover:-translate-y-0.5",
+                    isDark
+                      ? "bg-gradient-to-br from-black/70 to-black/50 ring-1 ring-red-900/30 hover:from-black/80 hover:to-black/60 hover:shadow-lg hover:shadow-red-900/20"
+                      : "bg-gradient-to-br from-white/70 to-white/50 ring-1 ring-white/50 hover:from-white/80 hover:to-white/60 hover:shadow-lg hover:shadow-slate-200/30"
+                  )}
                 >
-                  <span className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                  <span className={cn(
+                    "text-xs uppercase tracking-[0.3em]",
+                    isDark ? "text-red-500/60" : "text-slate-400"
+                  )}>
                     Previous
                   </span>
-                  <span className="text-sm font-medium text-slate-800 group-hover:text-slate-900">
+                  <span className={cn(
+                    "text-sm font-medium",
+                    isDark ? "text-white/70 group-hover:text-white/90" : "text-slate-800 group-hover:text-slate-900"
+                  )}>
                     {previousSection.title}
                   </span>
                 </Link>
               ) : (
-                <span className="inline-flex flex-col rounded-2xl border border-dashed border-slate-200 px-4 py-3 text-xs uppercase tracking-[0.3em] text-slate-300">
+                <span className={cn(
+                  "inline-flex flex-col rounded-2xl border border-dashed px-4 py-3 text-xs uppercase tracking-[0.3em]",
+                  isDark ? "border-white/20 text-white/20" : "border-slate-200 text-slate-300"
+                )}>
                   Start of book
                 </span>
               )}
@@ -382,17 +518,31 @@ const BookReader = ({
                     setActiveSection(nextSection.id);
                     closeSidebarOnMobile();
                   }}
-                  className="group inline-flex flex-col rounded-2xl bg-gradient-to-br from-white/70 to-white/50 px-4 py-3 text-right ring-1 ring-white/50 backdrop-blur-xl transition hover:-translate-y-0.5 hover:from-white/80 hover:to-white/60 hover:shadow-lg hover:shadow-slate-200/30"
+                  className={cn(
+                    "group inline-flex flex-col rounded-2xl px-4 py-3 text-right backdrop-blur-xl transition hover:-translate-y-0.5",
+                    isDark
+                      ? "bg-gradient-to-br from-black/70 to-black/50 ring-1 ring-red-900/30 hover:from-black/80 hover:to-black/60 hover:shadow-lg hover:shadow-red-900/20"
+                      : "bg-gradient-to-br from-white/70 to-white/50 ring-1 ring-white/50 hover:from-white/80 hover:to-white/60 hover:shadow-lg hover:shadow-slate-200/30"
+                  )}
                 >
-                  <span className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                  <span className={cn(
+                    "text-xs uppercase tracking-[0.3em]",
+                    isDark ? "text-red-500/60" : "text-slate-400"
+                  )}>
                     Next
                   </span>
-                  <span className="text-sm font-medium text-slate-800 group-hover:text-slate-900">
+                  <span className={cn(
+                    "text-sm font-medium",
+                    isDark ? "text-white/70 group-hover:text-white/90" : "text-slate-800 group-hover:text-slate-900"
+                  )}>
                     {nextSection.title}
                   </span>
                 </Link>
               ) : (
-                <span className="inline-flex flex-col rounded-2xl border border-dashed border-slate-200 px-4 py-3 text-xs uppercase tracking-[0.3em] text-slate-300">
+                <span className={cn(
+                  "inline-flex flex-col rounded-2xl border border-dashed px-4 py-3 text-xs uppercase tracking-[0.3em]",
+                  isDark ? "border-white/20 text-white/20" : "border-slate-200 text-slate-300"
+                )}>
                   End of book
                 </span>
               )}

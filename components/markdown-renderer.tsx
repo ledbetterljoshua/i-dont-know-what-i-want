@@ -4,6 +4,7 @@ import { Fragment, useMemo } from "react";
 
 type MarkdownRendererProps = {
   content: string;
+  theme?: "light" | "dark";
 };
 
 type Block =
@@ -220,20 +221,29 @@ const parseMarkdown = (markdown: string): Block[] => {
   return blocks;
 };
 
-const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
+const MarkdownRenderer = ({ content, theme = "light" }: MarkdownRendererProps) => {
   const blocks = useMemo(() => parseMarkdown(content), [content]);
+  const isDark = theme === "dark";
+
+  // Theme-aware colors
+  const textColor = isDark ? "text-white/80" : "text-slate-700";
+  const headingColor = isDark ? "text-white/95" : "text-slate-900";
+  const blockquoteBg = isDark ? "bg-red-900/10" : "bg-slate-50/60";
+  const blockquoteBorder = isDark ? "border-red-800/40" : "border-slate-200";
+  const codeBorder = isDark ? "border-red-900/30" : "border-slate-200";
+  const iframeBorder = isDark ? "border-white/10" : "border-slate-200";
 
   return (
-    <div className="space-y-5 leading-[1.8] text-slate-700">
+    <div className={`space-y-5 leading-[1.8] ${textColor}`}>
       {blocks.map((block, index) => {
         if (block.type === "heading") {
           const HeadingTag = `h${block.level}` as keyof React.JSX.IntrinsicElements;
           const className =
             block.level === 1
-              ? "mt-14 text-3xl font-semibold text-slate-900"
+              ? `mt-14 text-3xl font-semibold ${headingColor}`
               : block.level === 2
-                ? "mt-12 text-2xl font-semibold text-slate-900"
-                : "mt-10 text-xl font-semibold text-slate-900";
+                ? `mt-12 text-2xl font-semibold ${headingColor}`
+                : `mt-10 text-xl font-semibold ${headingColor}`;
 
           return (
             <HeadingTag key={index} className={className}>
@@ -244,7 +254,7 @@ const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
 
         if (block.type === "paragraph") {
           return (
-            <p key={index} className="text-slate-700">
+            <p key={index} className={textColor}>
               {renderInline(block.text)}
             </p>
           );
@@ -254,7 +264,7 @@ const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
           return (
             <ul key={index} className="list-disc space-y-2 pl-6">
               {block.items.map((item, itemIdx) => (
-                <li key={itemIdx} className="text-slate-700">
+                <li key={itemIdx} className={textColor}>
                   {renderInline(item)}
                 </li>
               ))}
@@ -266,7 +276,7 @@ const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
           return (
             <blockquote
               key={index}
-              className="border-l-4 border-slate-200 bg-slate-50/60 px-4 py-3 text-slate-700"
+              className={`border-l-4 ${blockquoteBorder} ${blockquoteBg} px-4 py-3 ${textColor}`}
             >
               {renderInline(block.text)}
             </blockquote>
@@ -277,7 +287,7 @@ const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
           return (
             <pre
               key={index}
-              className="overflow-x-auto rounded-2xl border border-slate-200 bg-slate-900/95 p-4 text-sm text-slate-100"
+              className={`overflow-x-auto rounded-2xl border ${codeBorder} bg-slate-900/95 p-4 text-sm text-slate-100`}
             >
               <code>{block.code}</code>
             </pre>
@@ -291,7 +301,7 @@ const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
                 src={block.src}
                 width={block.width || "100%"}
                 height={block.height || "166"}
-                className="rounded-2xl border border-slate-200"
+                className={`rounded-2xl border ${iframeBorder}`}
                 allow={block.allow || "autoplay"}
                 loading="lazy"
               />

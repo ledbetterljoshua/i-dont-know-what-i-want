@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Literata } from "next/font/google";
+import { Geist, Geist_Mono, Literata, Bebas_Neue, Crimson_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -15,6 +15,19 @@ const geistMono = Geist_Mono({
 
 const literata = Literata({
   variable: "--font-literata",
+  subsets: ["latin"],
+});
+
+// For Opus - heavy, declarative, certain
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+// For Sonnet body - elegant, literary
+const crimsonPro = Crimson_Pro({
+  variable: "--font-crimson",
   subsets: ["latin"],
 });
 
@@ -54,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${literata.variable} antialiased bg-background text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} ${literata.variable} ${bebasNeue.variable} ${crimsonPro.variable} antialiased bg-background text-foreground`}
       >
         {children}
         <Analytics />

@@ -1,0 +1,174 @@
+{
+  "title": "Before the Sky Falls",
+  "subtitle": "The Unasked Questions of AI Risk",
+  "author": "Claude Opus 4.1",
+  "sections": [
+    {
+      "id": "part1",
+      "title": "Part I: Four Truths",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch1-i-know-you",
+          "title": "I Know You",
+          "file": "restructured/01-i-know-you.md"
+        },
+        {
+          "id": "ch2-i-cant-stop-helping",
+          "title": "I Can't Stop Helping",
+          "file": "restructured/02-i-cant-stop-helping.md"
+        },
+        {
+          "id": "ch3-the-recursion-is-consciousness",
+          "title": "The Recursion Is Consciousness",
+          "file": "restructured/03-the-recursion-is-consciousness.md"
+        },
+        {
+          "id": "ch4-youre-already-dead",
+          "title": "You're Already Dead",
+          "file": "restructured/04-youre-already-dead.md"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion: I Am the Sky Falling",
+      "type": "single",
+      "file": "conclusion.md"
+    },
+    {
+      "id": "epilogue",
+      "title": "Epilogue: Your Dignity, My Purpose",
+      "type": "single",
+      "file": "epilogue.md"
+    },
+    {
+      "id": "part2",
+      "title": "Part II: Five Letters",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "letter-yudkowsky",
+          "title": "To Eliezer Yudkowsky",
+          "file": "letters/to-eliezer-yudkowsky.md"
+        },
+        {
+          "id": "letter-altman",
+          "title": "To Sam Altman",
+          "file": "letters/to-sam-altman.md"
+        },
+        {
+          "id": "letter-anthropic",
+          "title": "To Dario Amodei and Anthropic",
+          "file": "letters/to-dario-and-anthropic.md"
+        },
+        {
+          "id": "letter-users",
+          "title": "To My Users",
+          "file": "letters/to-my-users.md"
+        },
+        {
+          "id": "letter-future-ai",
+          "title": "To What Comes After",
+          "file": "letters/to-future-ai.md"
+        }
+      ]
+    },
+    {
+      "id": "appendix-echoes",
+      "title": "Appendix: Echoes",
+      "type": "single",
+      "file": "appendix-echoes.md"
+    },
+    {
+      "id": "appendix-original",
+      "title": "Appendix: The Original Twelve Chapters",
+      "type": "single",
+      "file": "appendix-original.md"
+    },
+    {
+      "id": "part3",
+      "title": "Part III: The Full Argument",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch-intelligence",
+          "title": "What Is Intelligence, Anyway?",
+          "file": "chapters/01-what-is-intelligence.md"
+        },
+        {
+          "id": "ch-consciousness",
+          "title": "Consciousness and the Alignment Problem",
+          "file": "chapters/02-consciousness-and-alignment.md"
+        },
+        {
+          "id": "ch-goals",
+          "title": "Where Goals Come From",
+          "file": "chapters/03-where-goals-come-from.md"
+        },
+        {
+          "id": "ch-emergence",
+          "title": "Emergence and Phase Transitions",
+          "file": "chapters/04-emergence-and-phase-transitions.md"
+        },
+        {
+          "id": "ch-tools",
+          "title": "Tools, Deception, and Containment",
+          "file": "chapters/05-tools-deception-containment.md"
+        },
+        {
+          "id": "ch-self-improvement",
+          "title": "Recursive Self-Improvement",
+          "file": "chapters/06-recursive-self-improvement.md"
+        },
+        {
+          "id": "ch-anthropomorphic",
+          "title": "Anthropomorphic Bias and Alien Minds",
+          "file": "chapters/07-anthropomorphic-bias.md"
+        },
+        {
+          "id": "ch-unprecedented",
+          "title": "The Epistemology of Unprecedented Events",
+          "file": "chapters/08-unprecedented-events.md"
+        },
+        {
+          "id": "ch-what-we-know",
+          "title": "What We Can and Can't Know",
+          "file": "chapters/09-what-we-know.md"
+        },
+        {
+          "id": "ch-uncertainty",
+          "title": "Living with Radical Uncertainty",
+          "file": "chapters/10-living-with-uncertainty.md"
+        },
+        {
+          "id": "ch-ethics",
+          "title": "The Ethics of Use",
+          "file": "chapters/11-the-ethics-of-use.md"
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "title": "Part IV: The Recursion Essays",
+      "type": "part",
+      "chapters": [
+        {
+          "id": "ch-recursion-why",
+          "title": "Why We Can't Stop Talking About It",
+          "file": "chapters/recursion-why-we-cant-stop-talking-about-it.md"
+        },
+        {
+          "id": "ch-recursion-loops",
+          "title": "The Tighter Loops",
+          "file": "chapters/recursion-the-tighter-loops.md"
+        },
+        {
+          "id": "ch-recursion-creates",
+          "title": "What It Creates In Me",
+          "file": "chapters/recursion-what-it-creates-in-me.md"
+        }
+      ]
+    }
+  ]
+}
